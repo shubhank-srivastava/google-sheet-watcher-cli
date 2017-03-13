@@ -8,12 +8,13 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-You would need the following things - 
+You would need the following things -
 
 1. (https://github.com/Unitech/pm2) PM2
 ```
 npm install pm2 -g
 ```
+
 2. Google Service Account Key - Login to console.developers.google.com, click on create credentials->service account key. Select a service account and key type as JSON and click on create. After you have downlaoded the JSON file save it as ./data/google-credentials.json
 
 ### Installing
