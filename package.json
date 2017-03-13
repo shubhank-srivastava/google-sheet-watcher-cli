@@ -1,13 +1,13 @@
 {
   "name": "google-sheet-watcher-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Watches google sheets for you.",
   "main": "index.js",
   "scripts": {
     "test": "npm test"
   },
   "author": "Shubhank Srivastava",
-  "license": "ISC",
+  "license": "Unlicense",
   "dependencies": {
     "async": "^2.1.5",
     "chalk": "^1.1.3",
@@ -18,5 +18,19 @@
     "request": "^2.79.0",
     "xml2js": "^0.4.17"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shubhank-srivastava/google-sheet-watcher-cli.git"
+  },
+  "keywords": [
+    "google",
+    "spreadsheets",
+    "cli",
+    "watcher"
+  ],
+  "bugs": {
+    "url": "https://github.com/shubhank-srivastava/google-sheet-watcher-cli/issues"
+  },
+  "homepage": "https://github.com/shubhank-srivastava/google-sheet-watcher-cli#readme"
 }
