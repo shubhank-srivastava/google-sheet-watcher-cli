@@ -1,12 +1,12 @@
 {
   "name": "google-sheet-watcher-cli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Watches google sheets for you.",
   "main": "index.js",
   "scripts": {
     "test": "npm test"
   },
-  "bin":{
+  "bin": {
     "gsheets": "./index.js"
   },
   "author": "Shubhank Srivastava",

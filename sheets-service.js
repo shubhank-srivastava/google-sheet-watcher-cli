@@ -1,6 +1,6 @@
 var request = require('request');
-var GoogleSpreadsheet = require('./google-spreadsheet');
-var creds = require('./google-credentials.json');
+var GoogleSpreadsheet = require('./lib/google-spreadsheet');
+var creds = require('./data/google-credentials.json');
 var async = require('async');
 var fs = require('fs');
 var ws = [];
@@ -21,7 +21,7 @@ try{
 			callback();
 	}, function(err){
 		console.log("No. of sheets to watch -", ws.length);
-		fs.writeFileSync("service-pid", String(process.pid), "utf8");
+		fs.writeFileSync(__dirname+"/service-pid", String(process.pid), "utf8");
 		setTimeout(watch, 0);
 	});	
 }catch(e){
@@ -69,13 +69,14 @@ function publish(index, info, cb){
 }
 
 function DB_Load(){
+	var FILE_PATH = __dirname + '/data/data.json';
 	var file_buffer;
 	try{
-		if(fs.existsSync('./data.json'))
-			file_buffer = JSON.parse(fs.readFileSync('./data.json'));
+		if(fs.existsSync(FILE_PATH))
+			file_buffer = JSON.parse(fs.readFileSync(FILE_PATH));
 		else{
 			file_buffer = {counter:0};
-			fs.writeFileSync("./data.json", JSON.stringify(file_buffer), "utf8");
+			fs.writeFileSync(FILE_PATH, JSON.stringify(file_buffer), "utf8");
 		}
 		return file_buffer;
 	}catch(e){
@@ -86,8 +87,9 @@ function DB_Load(){
 }
 
 function DB_Write(file_buffer){
+	var FILE_PATH = __dirname + '/data/data.json';
 	try{
-		fs.writeFileSync("./data.json", JSON.stringify(file_buffer), "utf8");
+		fs.writeFileSync(FILE_PATH, JSON.stringify(file_buffer), "utf8");
 	}catch(e){
 		console.log(chalk.red("Could not write to data file. Please give neccessary permissions."));
 		process.exit(1);

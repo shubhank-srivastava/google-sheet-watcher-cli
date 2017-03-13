@@ -115,7 +115,7 @@ function importSheets(){
 function WATCHER(action){
 	switch(action){
 		case 'start':
-			cp.exec('pm2 start sheets-service.js', function(error, stdout){
+			cp.exec('pm2 start '+__dirname+'/sheets-service.js', function(error, stdout){
 				if(error)
 					console.log(chalk.red("Could not start the watcher."));
 				else
@@ -123,7 +123,7 @@ function WATCHER(action){
 			});
 		break;
 		case 'restart':
-			cp.exec('pm2 restart sheets-service.js', function(error, stdout){
+			cp.exec('pm2 restart '+__dirname+'/sheets-service.js', function(error, stdout){
 				if(error)
 					console.log(chalk.red("Could not re-start the watcher."));
 				else
@@ -131,7 +131,7 @@ function WATCHER(action){
 			});
 		break; 
 		case 'stop':
-			cp.exec('pm2 stop sheets-service.js', function(error, stdout){
+			cp.exec('pm2 stop '+__dirname+'/sheets-service.js', function(error, stdout){
 				if(error)
 					console.log(chalk.red("Could not stop the watcher. You can kill the process id mentioned in service-pid file."));
 				else
@@ -157,9 +157,8 @@ function setCallback(url){
 
 //Utils
 
-var FILE_PATH = './data/data.json';
-
 function DB_Load(){
+	var FILE_PATH = __dirname + '/data/data.json';
 	var file_buffer;
 	try{
 		if(fs.existsSync(FILE_PATH))
@@ -177,6 +176,7 @@ function DB_Load(){
 }
 
 function DB_Write(file_buffer){
+	var FILE_PATH = __dirname + '/data/data.json';
 	try{
 		fs.writeFileSync(FILE_PATH, JSON.stringify(file_buffer), "utf8");
 	}catch(e){
