@@ -15,7 +15,7 @@ You would need the following things -
 npm install pm2 -g
 ```
 
-2. Google Service Account Key - Login to [Google Apps Console](console.developers.google.com), click on create credentials->service account key. Select a service account and key type as JSON and click on create. After you have downlaoded the JSON file save it as ./data/google-credentials.json
+2. Google Service Account Key - Login to [Google Apps Console](https://console.developers.google.com), click on create credentials->service account key. Select a service account and key type as JSON and click on create. After you have downlaoded the JSON file save it as ./data/google-credentials.json
 
 ### Installing
 
@@ -29,12 +29,12 @@ npm i google-sheet-watcher-cli -g
 ```
 gsheets import
 ```
-Import spreadsheets of auhtorised google user. Remember that all the sheets shared at the email mentioned as client_email in the generated JSON file are ONLY the private files that will be imported.
+Import spreadsheets of auhtorised google user. Remember that all the sheets shared at the email mentioned as client_email field in the generated JSON file are ONLY the private files that will be imported.
 
 ```
 gsheets add <URL>
 ```
-Add a Google Spreadsheet (should be public or privately visible to client_email in JSON)
+Add a Google Spreadsheet (should be public or privately visible to client_email field in the downloaded JSON file.)
 ```
 gsheets list
 ```
